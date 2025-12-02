@@ -1,0 +1,26 @@
+Part 2:
+Example: pos = 73, rotate R1000 (d = +1):
+Distance from 73 to 0:
+i0 = (100 - 73) % 100 = 27
+Every clicks:
+i = 27, 127, 227, 327, 427, ... ≤ 1000
+How many times:
+1 + (1000 - 27) // 100
+= 1 + 973 // 100
+= 1 + 9
+= 10 times
+
+pos_mod = pos mod 100
+
+if d = +1:
+    i0 = (100 - pos_mod) % 100
+else (d = -1):
+    i0 = pos_mod
+
+if i0 == 0:
+    i0 = 100
+
+if i0 <= dist:
+    count = 1 + (dist - i0) / 100
+else:
+    count = 0
