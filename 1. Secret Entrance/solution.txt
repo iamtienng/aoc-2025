@@ -1,26 +1,30 @@
+Dial has values 0–99 (mod 100). Start at 50.
+
+Each instruction:
+- Direction d ∈ {+1 for R, –1 for L}
+- Distance k
+- Final position: pos = (pos + d*k) mod 100
+
+Part 1:
+Count hits where final pos == 0 after each instruction.
+This is just modular arithmetic:
+    pos_end = (pos_start + d*k) mod 100
+Check pos_end == 0.
+
 Part 2:
-Example: pos = 73, rotate R1000 (d = +1):
-Distance from 73 to 0:
-i0 = (100 - 73) % 100 = 27
-Every clicks:
-i = 27, 127, 227, 327, 427, ... ≤ 1000
-How many times:
-1 + (1000 - 27) // 100
-= 1 + 973 // 100
-= 1 + 9
-= 10 times
+Count every i such that a single click lands on 0:
+    (pos + d*i) mod 100 = 0
+Find smallest positive solution i0.
 
-pos_mod = pos mod 100
+For d = +1:
+    i0 = (100 − pos_mod) % 100, but if i0 = 0 -> i0 = 100
 
-if d = +1:
-    i0 = (100 - pos_mod) % 100
-else (d = -1):
-    i0 = pos_mod
+For d = –1:
+    i0 = pos_mod, but if i0 = 0 -> i0 = 100
 
-if i0 == 0:
-    i0 = 100
+If i0 <= k:
+    number of hits = 1 + ((k − i0) // 100)
 
-if i0 <= dist:
-    count = 1 + (dist - i0) / 100
-else:
-    count = 0
+Total hits = sum of hits for every instruction.
+Final pos still updates with:
+    pos = (pos + d*k) mod 100
