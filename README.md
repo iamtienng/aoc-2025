@@ -1,7 +1,6 @@
 # Advent of Code 2025
 
-This repository contains my solutions for Advent of Code 2025, implemented in Rust 1.91 with 2024
-edition syntax and features.
+This repository contains my solutions for Advent of Code 2025, implemented in `Rust 1.91` with `2024` edition syntax and features.
 
 Each day lives in its own directory, and every puzzle includes:
 
