@@ -5,7 +5,7 @@ This repository contains my solutions for Advent of Code 2025, implemented in `R
 Each day lives in its own directory, and every puzzle includes:
 
 - `topic.txt` — the puzzle description
-- `solution.txt` — the written explanation of the algorithm
+- `solution.md` — the written explanation of the algorithm
 - `solution/` — a fully standalone Rust crate containing main.rs
 - `input.txt` — my personal puzzle input
 - `output_part_one.txt` — computed answer for Part 1
